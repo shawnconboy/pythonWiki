@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lists - Python Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">Light Mode</button>
+  <main class="container">
+    <nav class="toc">
+      <a href="../index.html">&#8592; Home</a>
+    </nav>
+    <section class="intro">
+      <h1>Lists</h1>
+      <p>A list is a collection of items in a specific order. Lists can hold any data type.</p>
+      <h2>Example</h2>
+      <pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+# prints 'apple'
+print(fruits[0])
+</code></pre>
+      <h2>Why use lists?</h2>
+      <ul>
+        <li>Store multiple values in one variable</li>
+        <li>Change, add, or remove items easily</li>
+      </ul>
+    </section>
+  </main>
+<script>
+  // Default to dark mode
+  if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+    document.body.classList.remove('light');
+    localStorage.setItem('theme', 'dark');
+  }
+  // Load theme from storage
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('themeToggle').textContent = 'Dark Mode';
+  }
+  document.getElementById('themeToggle').onclick = function() {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  };
+</script>
+</body>
+</html>

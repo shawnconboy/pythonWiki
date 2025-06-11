@@ -5,10 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Wiki</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
 </head>
 
 <body>
-
+    <button class="theme-toggle" id="themeToggle">Light Mode</button>
+    <main class="container">
+        <section class="intro">
+            <h1>Python Notes Wiki</h1>
+            <p>Welcome! This is a super beginner-friendly guide to Python, inspired by <b>Automate the Boring Stuff with
+                    Python</b> by Al Sweigart. Click a topic below to get started.</p>
+        </section>
+        <nav class="toc">
+            <h2>Topics</h2>
+            <ul>
+                <li><a href="topics/data-types.html">Data Types</a></li>
+                <li><a href="topics/lists.html">Lists</a></li>
+                <li><a href="topics/dictionaries.html">Dictionaries</a></li>
+            </ul>
+        </nav>
+    </main>
+    <script>
+        // Default to dark mode
+        if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+            document.body.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+        }
+        // Load theme from storage
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+            document.getElementById('themeToggle').textContent = 'Dark Mode';
+        }
+        document.getElementById('themeToggle').onclick = function () {
+            document.body.classList.toggle('light');
+            const isLight = document.body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+        };
+    </script>
 </body>
 
 </html>

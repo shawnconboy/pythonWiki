@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Types - Python Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">Light Mode</button>
+  <main class="container">
+    <nav class="toc">
+      <a href="../index.html">&#8592; Home</a>
+    </nav>
+    <section class="intro">
+      <h1>Data Types</h1>
+      <p>Data types tell Python what kind of value something is. Here are the most common ones:</p>
+      <ul>
+        <li><b>int</b>: Whole numbers (e.g., <code>5</code>, <code>-3</code>)</li>
+        <li><b>float</b>: Decimal numbers (e.g., <code>3.14</code>, <code>-0.1</code>)</li>
+        <li><b>str</b>: Text (e.g., <code>"hello"</code>)</li>
+        <li><b>bool</b>: True or False values</li>
+      </ul>
+      <h2>Example</h2>
+      <pre><code class="language-python"># age is an int
+age = 21
+# price is a float
+price = 19.99
+# name is a string
+name = "Alice"
+# is_student is a boolean
+is_student = True
+</code></pre>
+    </section>
+  </main>
+<script>
+  // Default to dark mode
+  if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+    document.body.classList.remove('light');
+    localStorage.setItem('theme', 'dark');
+  }
+  // Load theme from storage
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('themeToggle').textContent = 'Dark Mode';
+  }
+  document.getElementById('themeToggle').onclick = function() {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  };
+</script>
+</body>
+</html>
