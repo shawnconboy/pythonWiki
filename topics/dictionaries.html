@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dictionaries - Python Wiki</title>
   <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
 </head>
+
 <body>
   <button class="theme-toggle" id="themeToggle">Light Mode</button>
   <main class="container">
@@ -17,7 +19,8 @@
     </nav>
     <section class="intro">
       <h1>Dictionaries</h1>
-      <p>A dictionary stores data as key-value pairs. Think of it like a real dictionary: you look up a word (key) to get its definition (value).</p>
+      <p>A dictionary stores data as key-value pairs. Think of it like a real dictionary: you look up a word (key) to
+        get its definition (value).</p>
       <h2>Example</h2>
       <pre><code class="language-python">person = {"name": "Alice", "age": 21}
 # prints 'Alice'
@@ -29,24 +32,56 @@ print(person["name"])
         <li>Organize related data together</li>
       </ul>
     </section>
+    <section class="example">
+      <h2>Real-life Example: Grocery List</h2>
+      <p>
+        Let's see how you might use a dictionary in a real program. Imagine you want to keep track of grocery items and
+        their prices. A dictionary makes this easy!
+      </p>
+      <pre><code class="language-python"># Step 1: Make a dictionary of groceries and prices
+groceries = {"apples": 1.50,
+             "bread": 2.00 ,
+             "milk": 2.50   }
+
+# Step 2: Pick an item you want to look up
+item = "bread"
+
+# Step 3: Get the price using the item as the key
+price = groceries[item]
+
+# Step 4: Print out the result
+print(f"The price of {item} is ${price}")
+</code></pre>
+      <ol>
+        <li><strong>Create</strong> a dictionary with items as keys and prices as values.</li>
+        <li><strong>Choose</strong> the item you want to check.</li>
+        <li><strong>Use</strong> the item name (the key) to get its price from the dictionary.</li>
+        <li><strong>Print</strong> the result.</li>
+      </ol>
+      <p>
+        This is a quick way to look up prices for any item in your grocery list. Dictionaries help you organize and find
+        information fast!
+      </p>
+    </section>
   </main>
-<script>
-  // Default to dark mode
-  if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
-    document.body.classList.remove('light');
-    localStorage.setItem('theme', 'dark');
-  }
-  // Load theme from storage
-  if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light');
-    document.getElementById('themeToggle').textContent = 'Dark Mode';
-  }
-  document.getElementById('themeToggle').onclick = function() {
-    document.body.classList.toggle('light');
-    const isLight = document.body.classList.contains('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
-  };
-</script>
+  <script>
+    // Default to dark mode
+    if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+      document.body.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    }
+    // Load theme from storage
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+      document.getElementById('themeToggle').textContent = 'Dark Mode';
+    }
+    document.getElementById('themeToggle').onclick = function () {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    };
+  </script>
 </body>
+
 </html>
