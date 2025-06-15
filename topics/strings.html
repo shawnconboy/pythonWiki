@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Wiki</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Python Strings</title>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
@@ -15,21 +13,31 @@
 <body>
     <button class="theme-toggle" id="themeToggle">Light Mode</button>
     <main class="container">
-        <section class="intro">
-            <h1>Python Notes Wiki</h1>
-            <p>Welcome! This is a super beginner-friendly guide to Python, inspired by <b>Automate the Boring Stuff with
-                    Python</b> by Al Sweigart. Click a topic below to get started.</p>
-        </section>
         <nav class="toc">
-            <h2>Topics</h2>
-            <ul>
-                <li><a href="topics/data-types.html">Data Types</a></li>
-                <li><a href="topics/lists.html">Lists</a></li>
-                <li><a href="topics/dictionaries.html">Dictionaries</a></li>
-                <li><a href="topics/strings.html">Python Strings</a></li>
-                <li><a href="topics/pyperclip_regex.html">Pyperclip and Regex for Beginners</a></li>
-            </ul>
+            <a href="../index.html">&#8592; Home</a>
         </nav>
+        <section class="intro">
+            <h1>Python Strings</h1>
+            <p>Strings are sequences of characters used to store text in Python.</p>
+            <h2>Creating Strings</h2>
+            <pre><code class="language-python">name = "Alice"
+greeting = 'Hello, world!'</code></pre>
+            <h2>String Methods</h2>
+            <pre><code class="language-python">print(name.upper())    # 'ALICE'
+print(name.lower())    # 'alice'
+print(name.title())    # 'Alice'</code></pre>
+            <h2>String Concatenation</h2>
+            <pre><code class="language-python">full_greeting = "Hello, " + name + "!"</code></pre>
+            <h2>Multiline Strings</h2>
+            <pre><code class="language-python">multiline = """This is
+a multiline
+string."""</code></pre>
+            <h2>Accessing Characters</h2>
+            <pre><code class="language-python">first_letter = name[0]  # 'A'</code></pre>
+            <h2>String Formatting</h2>
+            <pre><code class="language-python">age = 30
+print(f"{name} is {age} years old.")</code></pre>
+        </section>
     </main>
     <script>
         // Default to dark mode

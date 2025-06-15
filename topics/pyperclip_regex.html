@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pyperclip and Regex for Beginners</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+
+<body>
+    <button class="theme-toggle" id="themeToggle">Light Mode</button>
+    <main class="container">
+        <nav class="toc">
+            <a href="../index.html">&#8592; Home</a>
+        </nav>
+        <section class="intro">
+            <h1>Pyperclip and Regex for Beginners</h1>
+            <p>This page will show you, step by step, how to use <code>pyperclip</code> and <code>re</code> (regular
+                expressions) in Python, just like in Al Sweigart's books.</p>
+            <h2>Step 1: Importing Modules</h2>
+            <p>First, you need to import the modules. <code>pyperclip</code> lets you copy and paste text to and from
+                your clipboard. <code>re</code> lets you search for patterns in text.</p>
+            <pre><code class="language-python">import pyperclip  # For clipboard operations
+import re         # For regular expressions (pattern matching)</code></pre>
+            <h2>Step 2: Copying and Pasting with Pyperclip</h2>
+            <p>Copy text to the clipboard:</p>
+            <pre><code class="language-python">pyperclip.copy('Hello, world!')</code></pre>
+            <p>Paste text from the clipboard:</p>
+            <pre><code class="language-python">text = pyperclip.paste()
+print(text)  # Output: Hello, world!</code></pre>
+            <h2>Step 3: Using Regex to Find Patterns</h2>
+            <p>Suppose you want to find phone numbers in some text. You can use <code>re</code> for this:</p>
+            <pre><code class="language-python">text = "Call me at 415-555-1011 or 212-555-9999."
+phone_regex = re.compile(r'\d{3}-\d{3}-\d{4}')
+matches = phone_regex.findall(text)
+print(matches)  # ['415-555-1011', '212-555-9999']</code></pre>
+            <h2>Step 4: Putting It All Together</h2>
+            <p>Let's get text from the clipboard, find all phone numbers, and print them:</p>
+            <pre><code class="language-python">import pyperclip
+import re
+
+# Get text from clipboard
+text = pyperclip.paste()
+
+# Create regex pattern for phone numbers
+phone_regex = re.compile(r'\d{3}-\d{3}-\d{4}')
+
+# Find all matches
+matches = phone_regex.findall(text)
+
+# Print results
+for match in matches:
+    print('Found phone number:', match)</code></pre>
+            <h2>Summary</h2>
+            <ul>
+                <li><code>pyperclip</code> lets you copy and paste text to and from the clipboard.</li>
+                <li><code>re</code> lets you search for patterns in text.</li>
+                <li>You can combine them to search for things like phone numbers in clipboard text.</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        // Default to dark mode
+        if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+            document.body.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+        }
+        // Load theme from storage
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+            document.getElementById('themeToggle').textContent = 'Dark Mode';
+        }
+        document.getElementById('themeToggle').onclick = function () {
+            document.body.classList.toggle('light');
+            const isLight = document.body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+        };
+    </script>
+</body>
+
+</html>

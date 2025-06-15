@@ -194,10 +194,10 @@ body.light .toc a {
 
 body.light .toc a:hover {
     background: #f0f4fa;
-    color: #fff;
+    color: #2820fa;
     border: 1.5px solid var(--color-accent);
     box-shadow: 0 2px 8px #aab4c8;
-    background: #2e5bff;
+    background: #ffffff;
     box-shadow: 0 4px 16px #b6cfff;
 }
 
@@ -215,8 +215,8 @@ nav.toc>a {
 }
 
 nav.toc>a:hover {
-    color: #2e5bff;
-    background: #f4f7ff;
+    color: #6e717d;
+    background: #f4f7ff0f;
 }
 
 pre {
