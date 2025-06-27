@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text Files in Python</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+
+<body>
+    <button class="theme-toggle" id="themeToggle">Light Mode</button>
+    <main class="container">
+        <nav class="toc">
+            <a href="../index.html">&#8592; Home</a>
+        </nav>
+
+        <section class="intro">
+            <h1>Text Files</h1>
+            <p>This page explains how to work with text files in Python — reading, writing, and appending. It's written
+                simply for beginners and follows ideas from <strong>Al Sweigart's</strong> book.</p>
+
+            <h2>Step 1: Importing Modules</h2>
+            <p>Sometimes we write:</p>
+            <pre><code class="language-python">from pathlib import Path</code></pre>
+            <p>This means "from the <code>pathlib</code> module, import the <code>Path</code> class" — so we can just
+                write <code>Path()</code> instead of <code>pathlib.Path()</code>. It makes code shorter.</p>
+
+            <p>Other times, we use the whole module name like this:</p>
+            <pre><code class="language-python">import os</code></pre>
+            <p>This brings in everything in the <code>os</code> module. To use a function from it, you write
+                <code>os.function_name()</code>.</p>
+
+            <h2>Step 2: Creating a New Text File</h2>
+            <p>To create and write to a text file, use the <code>open()</code> function with <code>'w'</code> mode (w =
+                write):</p>
+            <pre><code class="language-python">file = open("hello.txt", "w")
+file.write("Hello, world!\n")
+file.write("This is a text file.\n")
+file.close()</code></pre>
+            <p>This makes a file named <code>hello.txt</code> and writes two lines to it. <code>\n</code> means "new
+                line." Always call <code>close()</code> when you're done.</p>
+
+            <h2>Step 3: Reading from a File</h2>
+            <p>To read the contents back, open it in <code>'r'</code> mode (r = read):</p>
+            <pre><code class="language-python">file = open("hello.txt", "r")
+content = file.read()
+print(content)
+file.close()</code></pre>
+
+            <h2>Step 4: Appending to a File</h2>
+            <p>If you want to add to the file without erasing it, use <code>'a'</code> mode (a = append):</p>
+            <pre><code class="language-python">file = open("hello.txt", "a")
+file.write("Another line.\n")
+file.close()</code></pre>
+
+            <h2>Step 5: Using "with open(...) as file"</h2>
+            <p>This is a cleaner way to open files. It closes the file automatically, even if there's an error:</p>
+            <pre><code class="language-python">with open("hello.txt", "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+
+            <h2>Step-by-Step Program</h2>
+            This program will
+            <br>
+
+            <li>Create a file</li>
+            <li>Write some text</li>
+            <li>Read it back</li>
+            <li>Append to it</li>
+            <li>Show final result</li>
+            <br>
+            <pre><code class="language-python"># Step 1: Write to file
+with open("notes.txt", "w") as file:
+    file.write("My first note.\n")
+    file.write("Python is easy.\n")
+
+# Step 2: Read file
+with open("notes.txt", "r") as file:
+    content = file.read()
+    print("Current contents:\n", content)
+
+# Step 3: Append to file
+with open("notes.txt", "a") as file:
+    file.write("Adding one more line.\n")
+
+# Step 4: Read final file
+with open("notes.txt", "r") as file:
+    final = file.read()
+    print("\nFinal contents:\n", final)</code></pre>
+
+            <h2>Summary</h2>
+            <ul>
+                <li><code>open("filename.txt", "mode")</code> is how you work with files. Modes are: <code>"w"</code> =
+                    write, <code>"r"</code> = read, <code>"a"</code> = append.</li>
+                <li><code>file.write("text")</code> writes text. <code>file.read()</code> reads it all.</li>
+                <li><code>with open(...) as file</code> is best practice because it auto-closes the file.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Default to dark mode
+        if (!document.body.classList.contains('light') && !localStorage.getItem('theme')) {
+            document.body.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+        }
+        // Load theme from storage
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+            document.getElementById('themeToggle').textContent = 'Dark Mode';
+        }
+        document.getElementById('themeToggle').onclick = function () {
+            document.body.classList.toggle('light');
+            const isLight = document.body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            this.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+        };
+    </script>
+</body>
+
+</html>
