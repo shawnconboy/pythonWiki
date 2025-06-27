@@ -31,7 +31,8 @@
             <p>Other times, we use the whole module name like this:</p>
             <pre><code class="language-python">import os</code></pre>
             <p>This brings in everything in the <code>os</code> module. To use a function from it, you write
-                <code>os.function_name()</code>.</p>
+                <code>os.function_name()</code>.
+            </p>
 
             <h2>Step 2: Creating a New Text File</h2>
             <p>To create and write to a text file, use the <code>open()</code> function with <code>'w'</code> mode (w =
@@ -65,13 +66,13 @@ file.close()</code></pre>
             <h2>Step-by-Step Program</h2>
             This program will
             <br>
-
             <li>Create a file</li>
             <li>Write some text</li>
             <li>Read it back</li>
             <li>Append to it</li>
             <li>Show final result</li>
             <br>
+
             <pre><code class="language-python"># Step 1: Write to file
 with open("notes.txt", "w") as file:
     file.write("My first note.\n")
